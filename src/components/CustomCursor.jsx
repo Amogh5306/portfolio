@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
-const CURSOR_SIZE = 32
-const CURSOR_SIZE_HOVER = 56
+const CURSOR_SIZE = 28
+const CURSOR_SIZE_HOVER = 52
 
 export default function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false)
@@ -11,7 +11,7 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
 
-  const springConfig = { damping: 28, stiffness: 300, mass: 0.5 }
+  const springConfig = { damping: 25, stiffness: 350, mass: 0.4 }
   const smoothX = useSpring(cursorX, springConfig)
   const smoothY = useSpring(cursorY, springConfig)
 
@@ -25,9 +25,7 @@ export default function CustomCursor() {
     const handleMouseLeave = () => setIsVisible(false)
     const handleMouseEnter = () => setIsVisible(true)
 
-    /* Detect hover on interactive elements */
     const interactiveSelectors = 'a, button, [role="button"], input, textarea, select, [data-cursor-hover]'
-
     const handleElementEnter = () => setIsHovering(true)
     const handleElementLeave = () => setIsHovering(false)
 
@@ -37,7 +35,6 @@ export default function CustomCursor() {
         el.addEventListener('mouseleave', handleElementLeave)
       })
     }
-
     const detachListeners = () => {
       document.querySelectorAll(interactiveSelectors).forEach((el) => {
         el.removeEventListener('mouseenter', handleElementEnter)
@@ -49,7 +46,6 @@ export default function CustomCursor() {
     document.addEventListener('mouseleave', handleMouseLeave)
     document.addEventListener('mouseenter', handleMouseEnter)
 
-    /* Initial attach + MutationObserver for dynamic elements */
     attachListeners()
     const observer = new MutationObserver(() => {
       detachListeners()
@@ -66,7 +62,6 @@ export default function CustomCursor() {
     }
   }, [cursorX, cursorY, isVisible])
 
-  /* Hide on touch devices */
   if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
     return null
   }
@@ -75,15 +70,10 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Outer ring — soft, hollow circle */}
+      {/* Outer ring */}
       <motion.div
-        className="fixed top-0 left-0 z-[9999] pointer-events-none mix-blend-normal"
-        style={{
-          x: smoothX,
-          y: smoothY,
-          translateX: '-50%',
-          translateY: '-50%',
-        }}
+        className="fixed top-0 left-0 z-[9999] pointer-events-none"
+        style={{ x: smoothX, y: smoothY, translateX: '-50%', translateY: '-50%' }}
       >
         <motion.div
           animate={{
@@ -91,46 +81,35 @@ export default function CustomCursor() {
             height: size,
             borderWidth: isHovering ? 2 : 1.5,
             backgroundColor: isHovering
-              ? 'rgba(212, 104, 58, 0.10)'
-              : 'rgba(212, 104, 58, 0)',
+              ? 'rgba(245, 166, 35, 0.08)'
+              : 'rgba(245, 166, 35, 0)',
           }}
-          transition={{
-            type: 'spring',
-            damping: 22,
-            stiffness: 400,
-            mass: 0.3,
-          }}
-          className="rounded-full border-terra-500/50"
+          transition={{ type: 'spring', damping: 22, stiffness: 400, mass: 0.3 }}
+          className="rounded-full"
           style={{
             opacity: isVisible ? 1 : 0,
             borderStyle: 'solid',
-            borderColor: 'rgba(212, 104, 58, 0.45)',
+            borderColor: isHovering
+              ? 'rgba(245, 166, 35, 0.5)'
+              : 'rgba(245, 166, 35, 0.3)',
           }}
         />
       </motion.div>
 
-      {/* Inner dot — small, filled accent */}
+      {/* Inner dot */}
       <motion.div
         className="fixed top-0 left-0 z-[9999] pointer-events-none"
-        style={{
-          x: cursorX,
-          y: cursorY,
-          translateX: '-50%',
-          translateY: '-50%',
-        }}
+        style={{ x: cursorX, y: cursorY, translateX: '-50%', translateY: '-50%' }}
       >
         <motion.div
           animate={{
-            width: isHovering ? 6 : 5,
-            height: isHovering ? 6 : 5,
-            opacity: isVisible ? (isHovering ? 0.9 : 0.7) : 0,
+            width: isHovering ? 6 : 4,
+            height: isHovering ? 6 : 4,
+            opacity: isVisible ? (isHovering ? 1 : 0.6) : 0,
           }}
-          transition={{
-            type: 'spring',
-            damping: 20,
-            stiffness: 500,
-          }}
-          className="rounded-full bg-terra-500"
+          transition={{ type: 'spring', damping: 20, stiffness: 500 }}
+          className="rounded-full"
+          style={{ background: 'linear-gradient(135deg, #f5a623, #e8604c)' }}
         />
       </motion.div>
     </>

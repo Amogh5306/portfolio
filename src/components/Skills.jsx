@@ -3,10 +3,16 @@ import { motion } from 'framer-motion'
 const skillCategories = [
   {
     title: 'Languages',
+    icon: '{ }',
+    gradient: 'from-amber-500/20 to-amber-600/5',
+    borderGlow: 'hover:shadow-amber-500/10',
     skills: ['Python', 'JavaScript', 'MATLAB', 'SQL', 'HTML', 'CSS'],
   },
   {
     title: 'AI & ML',
+    icon: '⚡',
+    gradient: 'from-coral-500/20 to-coral-600/5',
+    borderGlow: 'hover:shadow-coral-500/10',
     skills: [
       'Machine Learning',
       'Regression',
@@ -15,15 +21,21 @@ const skillCategories = [
       'Scikit-learn',
       'Pandas',
       'NumPy',
-      'Data Visualization',
+      'Data Viz',
     ],
   },
   {
     title: 'Frontend',
+    icon: '◆',
+    gradient: 'from-amber-400/20 to-coral-500/5',
+    borderGlow: 'hover:shadow-amber-400/10',
     skills: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'Responsive Design', 'REST APIs'],
   },
   {
     title: 'Design',
+    icon: '✦',
+    gradient: 'from-coral-400/20 to-amber-500/5',
+    borderGlow: 'hover:shadow-coral-400/10',
     skills: ['Figma', 'UI/UX Design', 'Prototyping', 'Design Systems', 'Typography', 'Visual Design'],
   },
 ]
@@ -31,56 +43,57 @@ const skillCategories = [
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
+    transition: { staggerChildren: 0.12 },
   },
 }
 
-const categoryVariants = {
-  hidden: { opacity: 0, y: 40 },
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, filter: 'blur(6px)' },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+    filter: 'blur(0px)',
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
   },
 }
 
 const pillVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, scale: 0.8 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.4, ease: 'easeOut' },
+    transition: { duration: 0.35, ease: 'easeOut' },
   },
 }
 
 export default function Skills() {
   return (
     <section id="skills" className="relative py-28 sm:py-36">
-      {/* Section dividers */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cream-500 dark:via-night-600 to-transparent transition-colors duration-400" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cream-500 dark:via-night-600 to-transparent transition-colors duration-400" />
-      </div>
+      {/* Top gradient line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] max-w-3xl h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+
+      {/* Background accent */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-8 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(245,166,35,0.15) 0%, transparent 70%)' }}
+      />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, filter: 'blur(6px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 sm:mb-20"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-16 sm:mb-20"
         >
-          <p className="text-xs font-medium text-terra-500 dark:text-terra-400 tracking-[0.2em] uppercase mb-3">
-            Expertise
+          <p className="text-xs font-bold text-amber-500 tracking-[0.25em] uppercase mb-4">
+            What I work with
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-charcoal-800 dark:text-night-50 tracking-tight transition-colors duration-400">
-            Skills & Technologies
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+            Skills & <span className="gradient-text">Technologies</span>
           </h2>
-          <p className="mt-4 text-charcoal-500 dark:text-night-200 text-base sm:text-lg max-w-xl transition-colors duration-400">
-            A curated set of tools and technologies I use to bring ideas to life.
+          <p className="mt-4 text-base-200 text-base sm:text-lg max-w-xl mx-auto">
+            My toolkit for building smart, beautiful things.
           </p>
         </motion.div>
 
@@ -89,22 +102,30 @@ export default function Skills() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10"
+          viewport={{ once: true, margin: '-60px' }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
         >
           {skillCategories.map((category) => (
             <motion.div
               key={category.title}
-              variants={categoryVariants}
-              className="group relative p-6 sm:p-8 rounded-2xl bg-cream-50/70 dark:bg-night-900/60 border border-cream-500/50 dark:border-night-700/50 hover:border-cream-600/70 dark:hover:border-night-600/80 hover:shadow-lg hover:shadow-cream-500/20 dark:hover:shadow-night-950/40 transition-all duration-500"
+              variants={cardVariants}
+              whileHover={{ y: -4, transition: { duration: 0.3 } }}
+              className={`group relative p-6 sm:p-8 rounded-2xl bg-gradient-to-br ${category.gradient} border border-base-600/40 hover:border-base-500/60 ${category.borderGlow} hover:shadow-2xl transition-all duration-500 overflow-hidden`}
             >
-              {/* Subtle hover glow */}
-              <div className="absolute inset-0 rounded-2xl bg-terra-50/0 dark:bg-terra-900/0 group-hover:bg-terra-50/30 dark:group-hover:bg-terra-900/10 transition-all duration-500 pointer-events-none" />
+              {/* Card inner bg */}
+              <div className="absolute inset-0 bg-base-850/80 rounded-2xl" />
+
+              {/* Hover glow */}
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{ background: 'radial-gradient(ellipse at center, rgba(245,166,35,0.05) 0%, transparent 70%)' }}
+              />
 
               <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-1 h-6 rounded-full bg-terra-500" />
-                  <h3 className="text-lg font-semibold text-charcoal-800 dark:text-night-50 tracking-tight transition-colors duration-400">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-base-700/60 border border-base-600/40 text-lg">
+                    {category.icon}
+                  </span>
+                  <h3 className="text-lg font-bold text-white tracking-tight">
                     {category.title}
                   </h3>
                 </div>
@@ -116,10 +137,10 @@ export default function Skills() {
                       variants={pillVariants}
                       data-cursor-hover
                       whileHover={{
-                        scale: 1.05,
-                        transition: { duration: 0.2 },
+                        scale: 1.08,
+                        transition: { duration: 0.15, ease: 'easeOut' },
                       }}
-                      className="inline-flex items-center px-4 py-2 text-sm font-medium text-charcoal-600 dark:text-night-100 bg-cream-200/80 dark:bg-night-800/80 border border-cream-500/60 dark:border-night-600/40 rounded-lg transition-colors duration-300 hover:text-terra-700 dark:hover:text-terra-300 hover:border-terra-300 dark:hover:border-terra-700 hover:bg-terra-50/50 dark:hover:bg-terra-900/20"
+                      className="inline-flex items-center px-3.5 py-1.5 text-[13px] font-semibold text-base-100 bg-base-700/50 border border-base-500/30 rounded-lg transition-all duration-300 hover:text-amber-300 hover:border-amber-500/40 hover:bg-amber-500/8 hover:shadow-[0_0_12px_rgba(245,166,35,0.08)]"
                     >
                       {skill}
                     </motion.span>
