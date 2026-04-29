@@ -22,6 +22,7 @@ export default function App() {
   const isDark = theme === 'dark'
 
   useEffect(() => {
+    document.title = 'Amogh'
     document.documentElement.classList.toggle('dark', isDark)
     document.documentElement.style.colorScheme = theme
     window.localStorage.setItem(THEME_STORAGE_KEY, theme)
