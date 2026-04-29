@@ -18,53 +18,12 @@ const itemVariants = {
   },
 }
 
-const orbVariants = {
-  animate: (i) => ({
-    y: [0, -20, 10, 0],
-    x: [0, 10, -10, 0],
-    scale: [1, 1.1, 0.95, 1],
-    transition: {
-      duration: 8 + i * 2,
-      repeat: Infinity,
-      ease: 'easeInOut',
-    },
-  }),
-}
-
 export default function Hero() {
   return (
     <section
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Floating gradient orbs */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div
-          custom={0}
-          animate="animate"
-          variants={orbVariants}
-          className="absolute top-[15%] left-[10%] w-[500px] h-[500px] rounded-full"
-          style={{ opacity: 'var(--c-orb-opacity)', background: 'radial-gradient(circle, rgba(245,166,35,0.4) 0%, transparent 70%)' }}
-        />
-        <motion.div
-          custom={1}
-          animate="animate"
-          variants={orbVariants}
-          className="absolute top-[40%] right-[5%] w-[600px] h-[600px] rounded-full"
-          style={{ opacity: 'var(--c-orb-opacity)', background: 'radial-gradient(circle, rgba(232,96,76,0.4) 0%, transparent 70%)' }}
-        />
-        <motion.div
-          custom={2}
-          animate="animate"
-          variants={orbVariants}
-          className="absolute bottom-[10%] left-[30%] w-[400px] h-[400px] rounded-full"
-          style={{ opacity: 'var(--c-orb-opacity)', background: 'radial-gradient(circle, rgba(255,194,51,0.4) 0%, transparent 70%)' }}
-        />
-      </div>
-
-      {/* Dot grid */}
-      <div className="absolute inset-0 dot-grid opacity-30 pointer-events-none" />
-
       <motion.div
         variants={containerVariants}
         initial="hidden"

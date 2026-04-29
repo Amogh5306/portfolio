@@ -68,11 +68,6 @@ export default function Skills() {
       {/* Top gradient line */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] max-w-3xl h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
 
-      {/* Background accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full pointer-events-none"
-        style={{ opacity: 'var(--c-orb-opacity)', background: 'radial-gradient(circle, rgba(245,166,35,0.2) 0%, transparent 70%)' }}
-      />
-
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Section header */}
         <motion.div
