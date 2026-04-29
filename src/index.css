@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 
@@ -62,6 +64,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+html.dark body {
+  background-color: var(--color-charcoal-900);
+  color: var(--color-cream-100);
 }
 
 /* Custom scrollbar */
@@ -79,8 +87,24 @@ body {
   background: var(--color-cream-700);
 }
 
+html.dark ::-webkit-scrollbar-track {
+  background: var(--color-charcoal-900);
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-charcoal-600);
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: var(--color-charcoal-500);
+}
+
 /* Selection colors */
 ::selection {
   background-color: rgba(212, 104, 58, 0.2);
   color: var(--color-charcoal-800);
+}
+
+html.dark ::selection {
+  color: var(--color-cream-100);
 }
