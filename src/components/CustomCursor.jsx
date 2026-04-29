@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
-const CURSOR_SIZE = 28
-const CURSOR_SIZE_HOVER = 52
+const CURSOR_SIZE = 36
+const CURSOR_SIZE_HOVER = 64
 
 export default function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false)
@@ -79,9 +79,9 @@ export default function CustomCursor() {
           animate={{
             width: size,
             height: size,
-            borderWidth: isHovering ? 2 : 1.5,
+            borderWidth: isHovering ? 2.5 : 2,
             backgroundColor: isHovering
-              ? 'rgba(245, 166, 35, 0.08)'
+              ? 'rgba(245, 166, 35, 0.15)'
               : 'rgba(245, 166, 35, 0)',
           }}
           transition={{ type: 'spring', damping: 22, stiffness: 400, mass: 0.3 }}
@@ -90,8 +90,8 @@ export default function CustomCursor() {
             opacity: isVisible ? 1 : 0,
             borderStyle: 'solid',
             borderColor: isHovering
-              ? 'rgba(245, 166, 35, 0.5)'
-              : 'rgba(245, 166, 35, 0.3)',
+              ? 'rgba(245, 166, 35, 0.85)'
+              : 'rgba(245, 166, 35, 0.65)',
           }}
         />
       </motion.div>
@@ -103,9 +103,9 @@ export default function CustomCursor() {
       >
         <motion.div
           animate={{
-            width: isHovering ? 6 : 4,
-            height: isHovering ? 6 : 4,
-            opacity: isVisible ? (isHovering ? 1 : 0.6) : 0,
+            width: isHovering ? 10 : 8,
+            height: isHovering ? 10 : 8,
+            opacity: isVisible ? 1 : 0,
           }}
           transition={{ type: 'spring', damping: 20, stiffness: 500 }}
           className="rounded-full"

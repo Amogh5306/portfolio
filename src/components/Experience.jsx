@@ -74,9 +74,9 @@ export default function Experience() {
               {/* Card */}
               <motion.div
                 whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                className="group relative rounded-2xl border border-line hover:border-line-hover overflow-hidden transition-all duration-500 hover:shadow-2xl theme-aware"
+                className="group relative rounded-2xl border border-line hover:border-line-hover overflow-hidden transition-all duration-500 hover:shadow-2xl theme-aware backdrop-blur-xl shadow-xl shadow-black/5"
               >
-                <div className="absolute inset-0 bg-card/90 theme-aware" />
+                <div className="absolute inset-0 bg-card/60 theme-aware" />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                   style={{ background: 'radial-gradient(ellipse at top left, rgba(245,166,35,0.06) 0%, transparent 60%)' }}
                 />

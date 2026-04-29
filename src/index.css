@@ -54,8 +54,8 @@
   --c-ink-2: #a0a0be;
   --c-ink-3: #78789a;
   --c-ink-4: #56566e;
-  --c-line: rgba(46, 46, 66, 0.4);
-  --c-line-hover: rgba(46, 46, 66, 0.6);
+  --c-line: rgba(255, 255, 255, 0.08); /* Glassy dark borders */
+  --c-line-hover: rgba(255, 255, 255, 0.15);
   --c-glass: rgba(6, 6, 10, 0.65);
   --c-dot: rgba(160, 160, 190, 0.1);
   --c-pill-bg: rgba(30, 30, 44, 0.5);
@@ -69,21 +69,21 @@
 /* ===== LIGHT MODE ===== */
 /* Deeper, warmer beige. NO PURE WHITE. */
 :root.light {
-  --c-surface: #dcd3c3; 
-  --c-surface-2: #d1c6b4;
-  --c-card: #e5ddcd; 
-  --c-card-hover: #dfd5c4;
+  --c-surface: #e2d7c5; 
+  --c-surface-2: #d6caba;
+  --c-card: #ebe2d3; 
+  --c-card-hover: #f1ede1;
   --c-ink: #2b231c;
   --c-ink-2: #4a3e33;
   --c-ink-3: #6c5d4f;
   --c-ink-4: #928373;
-  --c-line: rgba(140, 118, 95, 0.25);
-  --c-line-hover: rgba(140, 118, 95, 0.5);
-  --c-glass: rgba(220, 211, 195, 0.7);
-  --c-dot: rgba(43, 35, 28, 0.08);
-  --c-pill-bg: rgba(200, 188, 172, 0.5);
-  --c-icon-bg: rgba(200, 188, 172, 0.7);
-  --c-orb-opacity: 0.25;
+  --c-line: rgba(255, 255, 255, 0.55); /* Glassy white frosted borders */
+  --c-line-hover: rgba(255, 255, 255, 0.95);
+  --c-glass: rgba(235, 226, 211, 0.65);
+  --c-dot: rgba(43, 35, 28, 0.12); /* More visible dots */
+  --c-pill-bg: rgba(255, 255, 255, 0.4); /* Glassy pill backgrounds */
+  --c-icon-bg: rgba(255, 255, 255, 0.6);
+  --c-orb-opacity: 0.55; /* Huge vibrant splash of color in light mode */
   --c-gradient-text-from: #b36d08;
   --c-gradient-text-via: #a83528;
   --c-gradient-text-to: #b36d08;

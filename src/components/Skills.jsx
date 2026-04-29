@@ -101,10 +101,10 @@ export default function Skills() {
               key={category.title}
               variants={cardVariants}
               whileHover={{ y: -4, transition: { duration: 0.3 } }}
-              className="group relative p-6 sm:p-8 rounded-2xl border border-line hover:border-line-hover hover:shadow-2xl transition-all duration-500 overflow-hidden theme-aware"
+              className="group relative p-6 sm:p-8 rounded-2xl border border-line hover:border-line-hover hover:shadow-2xl transition-all duration-500 overflow-hidden theme-aware backdrop-blur-xl shadow-xl shadow-black/5"
             >
               {/* Card bg */}
-              <div className="absolute inset-0 bg-card/80 rounded-2xl theme-aware" />
+              <div className="absolute inset-0 bg-card/60 rounded-2xl theme-aware" />
 
               {/* Hover glow */}
               <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
