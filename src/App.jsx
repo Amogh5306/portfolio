@@ -1,3 +1,4 @@
+import { ThemeProvider } from './context/ThemeContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Skills from './components/Skills'
@@ -7,15 +8,17 @@ import CustomCursor from './components/CustomCursor'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-base-950 text-base-100 font-sans antialiased grain">
-      <CustomCursor />
-      <Navbar />
-      <main>
-        <Hero />
-        <Skills />
-        <Experience />
-      </main>
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="min-h-screen bg-surface text-ink-2 font-sans antialiased grain theme-aware">
+        <CustomCursor />
+        <Navbar />
+        <main>
+          <Hero />
+          <Skills />
+          <Experience />
+        </main>
+        <Footer />
+      </div>
+    </ThemeProvider>
   )
 }

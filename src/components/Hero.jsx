@@ -43,26 +43,26 @@ export default function Hero() {
           custom={0}
           animate="animate"
           variants={orbVariants}
-          className="absolute top-[15%] left-[10%] w-[500px] h-[500px] rounded-full opacity-20"
-          style={{ background: 'radial-gradient(circle, rgba(245,166,35,0.4) 0%, transparent 70%)' }}
+          className="absolute top-[15%] left-[10%] w-[500px] h-[500px] rounded-full"
+          style={{ opacity: 'var(--c-orb-opacity)', background: 'radial-gradient(circle, rgba(245,166,35,0.4) 0%, transparent 70%)' }}
         />
         <motion.div
           custom={1}
           animate="animate"
           variants={orbVariants}
-          className="absolute top-[40%] right-[5%] w-[600px] h-[600px] rounded-full opacity-15"
-          style={{ background: 'radial-gradient(circle, rgba(232,96,76,0.4) 0%, transparent 70%)' }}
+          className="absolute top-[40%] right-[5%] w-[600px] h-[600px] rounded-full"
+          style={{ opacity: 'var(--c-orb-opacity)', background: 'radial-gradient(circle, rgba(232,96,76,0.4) 0%, transparent 70%)' }}
         />
         <motion.div
           custom={2}
           animate="animate"
           variants={orbVariants}
-          className="absolute bottom-[10%] left-[30%] w-[400px] h-[400px] rounded-full opacity-10"
-          style={{ background: 'radial-gradient(circle, rgba(255,194,51,0.4) 0%, transparent 70%)' }}
+          className="absolute bottom-[10%] left-[30%] w-[400px] h-[400px] rounded-full"
+          style={{ opacity: 'var(--c-orb-opacity)', background: 'radial-gradient(circle, rgba(255,194,51,0.4) 0%, transparent 70%)' }}
         />
       </div>
 
-      {/* Dot grid overlay */}
+      {/* Dot grid */}
       <div className="absolute inset-0 dot-grid opacity-30 pointer-events-none" />
 
       <motion.div
@@ -73,7 +73,7 @@ export default function Hero() {
       >
         {/* Status badge */}
         <motion.div variants={itemVariants} className="mb-8">
-          <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-base-600/60 bg-base-800/40 backdrop-blur-sm text-xs font-semibold text-base-100 tracking-widest uppercase">
+          <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-line bg-card/40 backdrop-blur-sm text-xs font-semibold text-ink-2 tracking-widest uppercase theme-aware">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
@@ -85,7 +85,7 @@ export default function Hero() {
         {/* Main heading */}
         <motion.h1
           variants={itemVariants}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black text-white tracking-tight leading-[1.05]"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black text-ink tracking-tight leading-[1.05] theme-aware"
         >
           Hey, I'm{' '}
           <span className="gradient-text">Amogh Dey</span>
@@ -94,7 +94,7 @@ export default function Hero() {
         {/* Animated role line */}
         <motion.p
           variants={itemVariants}
-          className="mt-6 text-xl sm:text-2xl md:text-3xl font-semibold text-base-100 leading-relaxed"
+          className="mt-6 text-xl sm:text-2xl md:text-3xl font-semibold text-ink-2 leading-relaxed theme-aware"
         >
           I'm a <TextRotator />
         </motion.p>
@@ -102,12 +102,12 @@ export default function Hero() {
         {/* Description */}
         <motion.p
           variants={itemVariants}
-          className="mt-5 text-base sm:text-lg text-base-200 max-w-2xl mx-auto leading-relaxed"
+          className="mt-5 text-base sm:text-lg text-ink-3 max-w-2xl mx-auto leading-relaxed theme-aware"
         >
           I build things at the intersection of{' '}
-          <span className="text-amber-400 font-medium">code</span>,{' '}
-          <span className="text-coral-400 font-medium">intelligence</span>, and{' '}
-          <span className="text-amber-300 font-medium">design</span>
+          <span className="text-amber-500 font-medium">code</span>,{' '}
+          <span className="text-coral-500 font-medium">intelligence</span>, and{' '}
+          <span className="text-amber-400 font-medium">design</span>
           — turning complex problems into smooth, beautiful digital experiences.
         </motion.p>
 
@@ -116,7 +116,7 @@ export default function Hero() {
           <a
             href="#skills"
             data-cursor-hover
-            className="group relative inline-flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-amber-500 to-coral-500 text-base-950 text-sm font-bold rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(245,166,35,0.3)] hover:scale-[1.02]"
+            className="group relative inline-flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-amber-500 to-coral-500 text-white text-sm font-bold rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(245,166,35,0.3)] hover:scale-[1.02]"
           >
             See what I do
             <svg
@@ -132,13 +132,13 @@ export default function Hero() {
           <a
             href="#experience"
             data-cursor-hover
-            className="inline-flex items-center gap-2 px-7 py-3.5 border border-base-500 hover:border-amber-500/50 text-base-100 hover:text-white text-sm font-bold rounded-xl transition-all duration-300 hover:bg-base-800/40"
+            className="inline-flex items-center gap-2 px-7 py-3.5 border border-line hover:border-amber-500/50 text-ink-2 hover:text-ink text-sm font-bold rounded-xl transition-all duration-300 hover:bg-card/40 theme-aware"
           >
             My experience
           </a>
         </motion.div>
 
-        {/* Stats row */}
+        {/* Stats */}
         <motion.div
           variants={itemVariants}
           className="mt-16 flex flex-wrap items-center justify-center gap-8 sm:gap-16"
@@ -150,20 +150,17 @@ export default function Hero() {
           ].map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="text-2xl sm:text-3xl font-extrabold gradient-text">{stat.value}</p>
-              <p className="mt-1 text-xs font-medium text-base-300 tracking-wider uppercase">{stat.label}</p>
+              <p className="mt-1 text-xs font-medium text-ink-4 tracking-wider uppercase theme-aware">{stat.label}</p>
             </div>
           ))}
         </motion.div>
 
         {/* Scroll indicator */}
-        <motion.div
-          variants={itemVariants}
-          className="mt-16"
-        >
+        <motion.div variants={itemVariants} className="mt-16">
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-            className="mx-auto w-6 h-10 rounded-full border-2 border-base-500 flex items-start justify-center p-1.5"
+            className="mx-auto w-6 h-10 rounded-full border-2 border-line flex items-start justify-center p-1.5 theme-aware"
           >
             <motion.div
               animate={{ opacity: [0.3, 1, 0.3], height: [6, 12, 6] }}
