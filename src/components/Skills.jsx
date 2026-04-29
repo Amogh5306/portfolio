@@ -60,8 +60,8 @@ export default function Skills() {
     <section id="skills" className="relative py-28 sm:py-36">
       {/* Section dividers */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cream-500 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cream-500 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cream-500 dark:via-night-600 to-transparent transition-colors duration-400" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cream-500 dark:via-night-600 to-transparent transition-colors duration-400" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
@@ -73,13 +73,13 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="mb-16 sm:mb-20"
         >
-          <p className="text-xs font-medium text-terra-500 tracking-[0.2em] uppercase mb-3">
+          <p className="text-xs font-medium text-terra-500 dark:text-terra-400 tracking-[0.2em] uppercase mb-3">
             Expertise
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-charcoal-800 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-charcoal-800 dark:text-night-50 tracking-tight transition-colors duration-400">
             Skills & Technologies
           </h2>
-          <p className="mt-4 text-charcoal-500 text-base sm:text-lg max-w-xl">
+          <p className="mt-4 text-charcoal-500 dark:text-night-200 text-base sm:text-lg max-w-xl transition-colors duration-400">
             A curated set of tools and technologies I use to bring ideas to life.
           </p>
         </motion.div>
@@ -96,15 +96,15 @@ export default function Skills() {
             <motion.div
               key={category.title}
               variants={categoryVariants}
-              className="group relative p-6 sm:p-8 rounded-2xl bg-cream-50/70 border border-cream-500/50 hover:border-cream-600/70 hover:shadow-lg hover:shadow-cream-500/20 transition-all duration-500"
+              className="group relative p-6 sm:p-8 rounded-2xl bg-cream-50/70 dark:bg-night-900/60 border border-cream-500/50 dark:border-night-700/50 hover:border-cream-600/70 dark:hover:border-night-600/80 hover:shadow-lg hover:shadow-cream-500/20 dark:hover:shadow-night-950/40 transition-all duration-500"
             >
               {/* Subtle hover glow */}
-              <div className="absolute inset-0 rounded-2xl bg-terra-50/0 group-hover:bg-terra-50/30 transition-all duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl bg-terra-50/0 dark:bg-terra-900/0 group-hover:bg-terra-50/30 dark:group-hover:bg-terra-900/10 transition-all duration-500 pointer-events-none" />
 
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-1 h-6 rounded-full bg-terra-500" />
-                  <h3 className="text-lg font-semibold text-charcoal-800 tracking-tight">
+                  <h3 className="text-lg font-semibold text-charcoal-800 dark:text-night-50 tracking-tight transition-colors duration-400">
                     {category.title}
                   </h3>
                 </div>
@@ -119,7 +119,7 @@ export default function Skills() {
                         scale: 1.05,
                         transition: { duration: 0.2 },
                       }}
-                      className="inline-flex items-center px-4 py-2 text-sm font-medium text-charcoal-600 bg-cream-200/80 border border-cream-500/60 rounded-lg transition-colors duration-300 hover:text-terra-700 hover:border-terra-300 hover:bg-terra-50/50"
+                      className="inline-flex items-center px-4 py-2 text-sm font-medium text-charcoal-600 dark:text-night-100 bg-cream-200/80 dark:bg-night-800/80 border border-cream-500/60 dark:border-night-600/40 rounded-lg transition-colors duration-300 hover:text-terra-700 dark:hover:text-terra-300 hover:border-terra-300 dark:hover:border-terra-700 hover:bg-terra-50/50 dark:hover:bg-terra-900/20"
                     >
                       {skill}
                     </motion.span>

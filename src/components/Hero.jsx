@@ -26,9 +26,9 @@ export default function Hero() {
     >
       {/* Warm radial gradient background accents */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full bg-terra-100/40 blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-cream-400/50 blur-3xl" />
-        <div className="absolute top-1/4 left-1/6 w-[300px] h-[300px] rounded-full bg-terra-50/60 blur-2xl" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full bg-terra-100/40 dark:bg-terra-900/10 blur-3xl transition-colors duration-500" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-cream-400/50 dark:bg-night-800/50 blur-3xl transition-colors duration-500" />
+        <div className="absolute top-1/4 left-1/6 w-[300px] h-[300px] rounded-full bg-terra-50/60 dark:bg-terra-900/8 blur-2xl transition-colors duration-500" />
       </div>
 
       <motion.div
@@ -39,7 +39,7 @@ export default function Hero() {
       >
         {/* Tag line */}
         <motion.div variants={itemVariants} className="mb-6">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cream-500 bg-cream-50/60 text-xs font-medium text-charcoal-500 tracking-wide uppercase">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cream-500 dark:border-night-600 bg-cream-50/60 dark:bg-night-800/50 text-xs font-medium text-charcoal-500 dark:text-night-200 tracking-wide uppercase transition-colors duration-400">
             <span className="w-1.5 h-1.5 rounded-full bg-terra-500 animate-pulse" />
             Available for opportunities
           </span>
@@ -48,7 +48,7 @@ export default function Hero() {
         {/* Name */}
         <motion.h1
           variants={itemVariants}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-charcoal-800 tracking-tight leading-[1.05]"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-charcoal-800 dark:text-night-50 tracking-tight leading-[1.05] transition-colors duration-400"
         >
           Amogh Dey
         </motion.h1>
@@ -56,19 +56,19 @@ export default function Hero() {
         {/* Subtitle */}
         <motion.p
           variants={itemVariants}
-          className="mt-6 text-lg sm:text-xl md:text-2xl font-light text-charcoal-500 leading-relaxed max-w-2xl mx-auto"
+          className="mt-6 text-lg sm:text-xl md:text-2xl font-light text-charcoal-500 dark:text-night-200 leading-relaxed max-w-2xl mx-auto transition-colors duration-400"
         >
           A seamless blend of{' '}
-          <span className="text-terra-600 font-medium">Frontend Development</span>,{' '}
-          <span className="text-terra-600 font-medium">AI/ML</span>, and{' '}
-          <span className="text-terra-600 font-medium">Design</span>
+          <span className="text-terra-600 dark:text-terra-400 font-medium">Frontend Development</span>,{' '}
+          <span className="text-terra-600 dark:text-terra-400 font-medium">AI/ML</span>, and{' '}
+          <span className="text-terra-600 dark:text-terra-400 font-medium">Design</span>
           <span className="text-terra-500">.</span>
         </motion.p>
 
         {/* Description */}
         <motion.p
           variants={itemVariants}
-          className="mt-4 text-sm sm:text-base text-charcoal-400 max-w-xl mx-auto leading-relaxed"
+          className="mt-4 text-sm sm:text-base text-charcoal-400 dark:text-night-300 max-w-xl mx-auto leading-relaxed transition-colors duration-400"
         >
           Crafting intelligent, beautifully designed digital experiences
           that sit at the intersection of technology and aesthetics.
@@ -79,7 +79,7 @@ export default function Hero() {
           <a
             href="#skills"
             data-cursor-hover
-            className="group inline-flex items-center gap-2 px-6 py-3 bg-terra-500 hover:bg-terra-600 text-white text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-terra-300/40"
+            className="group inline-flex items-center gap-2 px-6 py-3 bg-terra-500 hover:bg-terra-600 dark:bg-terra-600 dark:hover:bg-terra-500 text-white text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-terra-300/40 dark:hover:shadow-terra-900/40"
           >
             Explore my work
             <svg
@@ -95,7 +95,7 @@ export default function Hero() {
           <a
             href="#experience"
             data-cursor-hover
-            className="inline-flex items-center px-6 py-3 border border-cream-600 hover:border-charcoal-300 text-charcoal-600 hover:text-charcoal-800 text-sm font-medium rounded-lg transition-all duration-300"
+            className="inline-flex items-center px-6 py-3 border border-cream-600 dark:border-night-600 hover:border-charcoal-300 dark:hover:border-night-400 text-charcoal-600 dark:text-night-200 hover:text-charcoal-800 dark:hover:text-night-50 text-sm font-medium rounded-lg transition-all duration-300"
           >
             View experience
           </a>
@@ -109,9 +109,9 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-5 h-8 rounded-full border border-cream-700 flex items-start justify-center p-1"
+            className="w-5 h-8 rounded-full border border-cream-700 dark:border-night-500 flex items-start justify-center p-1 transition-colors duration-400"
           >
-            <div className="w-1 h-2 rounded-full bg-cream-700" />
+            <div className="w-1 h-2 rounded-full bg-cream-700 dark:bg-night-400 transition-colors duration-400" />
           </motion.div>
         </motion.div>
       </motion.div>
