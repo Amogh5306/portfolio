@@ -5,10 +5,14 @@ import Skills from './components/Skills'
 import Experience from './components/Experience'
 import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
+import { ShaderAnimation } from './components/ui/shader-animation'
 
 function BackgroundElements() {
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      {/* Shader animation background */}
+      <ShaderAnimation />
+
       {/* Tech grid */}
       <div className="absolute inset-0 tech-grid opacity-50 theme-aware" />
       
