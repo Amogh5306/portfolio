@@ -51,12 +51,13 @@ export default function Hero() {
         </motion.h1>
 
         {/* Animated role line */}
-        <motion.p
+        <motion.div
           variants={itemVariants}
-          className="mt-6 text-xl sm:text-2xl md:text-3xl font-semibold text-ink-2 leading-relaxed theme-aware"
+          className="mt-6 flex items-center justify-center gap-2 text-xl sm:text-2xl md:text-3xl font-semibold text-ink-2 leading-relaxed theme-aware"
         >
-          I'm a <TextRotator />
-        </motion.p>
+          <span>I'm a</span>
+          <TextRotator />
+        </motion.div>
 
         {/* Description */}
         <motion.p

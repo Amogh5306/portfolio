@@ -3,9 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const roles = [
   'Frontend Developer',
-  'AI/ML Engineer',
   'UI/UX Designer',
-  'Problem Solver',
 ]
 
 export default function TextRotator() {
@@ -19,7 +17,7 @@ export default function TextRotator() {
   }, [])
 
   return (
-    <span className="relative inline-block h-[1.2em] overflow-hidden align-bottom">
+    <span className="relative inline-flex items-center justify-center h-[1.2em] overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.span
           key={roles[index]}
