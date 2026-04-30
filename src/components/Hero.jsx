@@ -1,120 +1,136 @@
 import { motion } from 'framer-motion'
+import TextRotator from './TextRotator'
+import AnimatedShaderHero from './ui/animated-shader-hero'
+import { LiquidButton, MetalButton } from './ui/liquid-glass-button'
 
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: {
-      staggerChildren: 0.12,
-    },
+    transition: { staggerChildren: 0.1 },
   },
 }
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 40, filter: 'blur(8px)' },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+    filter: 'blur(0px)',
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
   },
 }
 
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
-      {/* Warm radial gradient background accents */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full bg-terra-100/40 blur-3xl dark:bg-terra-900/20" />
-        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-cream-400/50 blur-3xl dark:bg-charcoal-700/50" />
-        <div className="absolute top-1/4 left-1/6 w-[300px] h-[300px] rounded-full bg-terra-50/60 blur-2xl dark:bg-terra-700/10" />
-      </div>
-
+    <section id="hero" className="relative w-full">
+      <AnimatedShaderHero className="min-h-screen">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-4xl mx-auto px-6 text-center"
+        className="relative z-10 max-w-5xl mx-auto px-6 text-center"
       >
-        {/* Tag line */}
-        <motion.div variants={itemVariants} className="mb-6">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cream-500 bg-cream-50/60 text-xs font-medium text-charcoal-500 tracking-wide uppercase dark:border-charcoal-700 dark:bg-charcoal-800/70 dark:text-cream-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-terra-500 animate-pulse" />
-            Available for opportunities
+        {/* Status badge */}
+        <motion.div variants={itemVariants} className="mb-8">
+          <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-line bg-card/40 backdrop-blur-md shadow-lg shadow-black/5 text-xs font-semibold text-ink-2 tracking-widest uppercase theme-aware">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500" />
+            </span>
+            Open to opportunities
           </span>
         </motion.div>
 
-        {/* Name */}
+        {/* Main heading */}
         <motion.h1
           variants={itemVariants}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-charcoal-800 tracking-tight leading-[1.05] dark:text-cream-100"
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-black text-ink tracking-tight leading-[1.05] theme-aware"
         >
-          Amogh Dey
+          Hey, I'm{' '}
+          <span className="gradient-text">Amogh Dey</span>
         </motion.h1>
 
-        {/* Subtitle */}
-        <motion.p
+        {/* Animated role line */}
+        <motion.div
           variants={itemVariants}
-          className="mt-6 text-lg sm:text-xl md:text-2xl font-light text-charcoal-500 leading-relaxed max-w-2xl mx-auto dark:text-cream-400"
+          className="mt-6 flex flex-wrap items-baseline justify-center gap-x-3 gap-y-2 text-2xl sm:text-3xl md:text-4xl font-bold leading-none theme-aware"
         >
-          A seamless blend of{' '}
-          <span className="text-terra-600 font-medium dark:text-terra-300">Frontend Development</span>,{' '}
-          <span className="text-terra-600 font-medium dark:text-terra-300">AI/ML</span>, and{' '}
-          <span className="text-terra-600 font-medium dark:text-terra-300">Design</span>
-          <span className="text-terra-500">.</span>
-        </motion.p>
+          <span className="text-ink-2">I'm a</span>
+          <TextRotator />
+        </motion.div>
 
         {/* Description */}
         <motion.p
           variants={itemVariants}
-          className="mt-4 text-sm sm:text-base text-charcoal-400 max-w-xl mx-auto leading-relaxed dark:text-cream-500"
+          className="mt-5 text-base sm:text-lg text-ink-3 max-w-2xl mx-auto leading-relaxed theme-aware"
         >
-          Crafting intelligent, beautifully designed digital experiences
-          that sit at the intersection of technology and aesthetics.
+          I build things at the intersection of{' '}
+          <span className="text-amber-500 font-medium">code</span>,{' '}
+          <span className="text-coral-500 font-medium">intelligence</span>, and{' '}
+          <span className="text-amber-400 font-medium">design</span>
+          — turning complex problems into smooth, beautiful digital experiences.
         </motion.p>
 
-        {/* CTA */}
-        <motion.div variants={itemVariants} className="mt-10 flex items-center justify-center gap-4">
-          <a
-            href="#skills"
+        {/* CTAs */}
+        <motion.div variants={itemVariants} className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <LiquidButton 
+            onClick={() => document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })}
             data-cursor-hover
-            className="group inline-flex items-center gap-2 px-6 py-3 bg-terra-500 hover:bg-terra-600 text-white text-sm font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-terra-300/40"
+            className="px-10 h-14 text-white"
           >
-            Explore my work
+            See what I do
             <svg
-              className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5"
+              className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              strokeWidth={2}
+              strokeWidth={2.5}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
-          </a>
-          <a
-            href="#experience"
+          </LiquidButton>
+          <MetalButton 
+            onClick={() => document.getElementById('experience').scrollIntoView({ behavior: 'smooth' })}
+            variant="default"
             data-cursor-hover
-            className="inline-flex items-center px-6 py-3 border border-cream-600 hover:border-charcoal-300 text-charcoal-600 hover:text-charcoal-800 text-sm font-medium rounded-lg transition-all duration-300 dark:border-charcoal-600 dark:text-cream-300 dark:hover:border-cream-500 dark:hover:text-cream-100"
           >
-            View experience
-          </a>
+            My experience
+          </MetalButton>
+        </motion.div>
+
+        {/* Stats */}
+        <motion.div
+          variants={itemVariants}
+          className="mt-16 flex flex-wrap items-center justify-center gap-8 sm:gap-16"
+        >
+          {[
+            { value: '3+', label: 'Technologies' },
+            { value: '10+', label: 'Skills' },
+            { value: 'KPMG', label: 'Internship' },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p className="text-2xl sm:text-3xl font-extrabold gradient-text">{stat.value}</p>
+              <p className="mt-1 text-xs font-medium text-ink-4 tracking-wider uppercase theme-aware">{stat.label}</p>
+            </div>
+          ))}
         </motion.div>
 
         {/* Scroll indicator */}
-        <motion.div
-          variants={itemVariants}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
+        <motion.div variants={itemVariants} className="mt-16">
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="w-5 h-8 rounded-full border border-cream-700 flex items-start justify-center p-1 dark:border-charcoal-500"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+            className="mx-auto w-6 h-10 rounded-full border-2 border-line flex items-start justify-center p-1.5 theme-aware"
           >
-            <div className="w-1 h-2 rounded-full bg-cream-700 dark:bg-cream-500" />
+            <motion.div
+              animate={{ opacity: [0.3, 1, 0.3], height: [6, 12, 6] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+              className="w-1 rounded-full bg-gradient-to-b from-amber-400 to-coral-400"
+            />
           </motion.div>
         </motion.div>
       </motion.div>
+      </AnimatedShaderHero>
     </section>
   )
 }

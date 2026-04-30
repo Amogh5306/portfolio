@@ -3,10 +3,12 @@ import { motion } from 'framer-motion'
 const skillCategories = [
   {
     title: 'Languages',
+    icon: '{ }',
     skills: ['Python', 'JavaScript', 'MATLAB', 'SQL', 'HTML', 'CSS'],
   },
   {
     title: 'AI & ML',
+    icon: '⚡',
     skills: [
       'Machine Learning',
       'Regression',
@@ -20,70 +22,69 @@ const skillCategories = [
   },
   {
     title: 'Frontend',
+    icon: '◆',
     skills: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'Responsive Design', 'REST APIs'],
   },
   {
     title: 'Design',
+    icon: '✦',
     skills: ['Figma', 'UI/UX Design', 'Prototyping', 'Design Systems', 'Typography', 'Visual Design'],
   },
 ]
 
-const getGoogleSearchUrl = (skill) =>
-  `https://www.google.com/search?q=${encodeURIComponent(skill)}`
-
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: {
-      staggerChildren: 0.15,
-    },
+    transition: { staggerChildren: 0.12 },
   },
 }
 
-const categoryVariants = {
-  hidden: { opacity: 0, y: 40 },
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, filter: 'blur(6px)' },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+    filter: 'blur(0px)',
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
   },
 }
 
 const pillVariants = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, scale: 0.8 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.4, ease: 'easeOut' },
+    transition: { duration: 0.35, ease: 'easeOut' },
   },
+}
+
+function getGoogleSearchUrl(skill) {
+  return `https://www.google.com/search?q=${encodeURIComponent(skill)}`
 }
 
 export default function Skills() {
   return (
     <section id="skills" className="relative py-28 sm:py-36">
-      {/* Section dividers */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cream-500 to-transparent dark:via-charcoal-700" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cream-500 to-transparent dark:via-charcoal-700" />
-      </div>
+      {/* Top gradient line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] max-w-3xl h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, filter: 'blur(6px)' }}
+          whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 sm:mb-20"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-16 sm:mb-20"
         >
-          <p className="text-xs font-medium text-terra-500 tracking-[0.2em] uppercase mb-3">
-            Expertise
+          <p className="text-xs font-bold text-amber-500 tracking-[0.25em] uppercase mb-4">
+            What I work with
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-charcoal-800 tracking-tight dark:text-cream-100">
-            Skills & Technologies
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-ink tracking-tight theme-aware">
+            Skills & <span className="gradient-text">Technologies</span>
           </h2>
-          <p className="mt-4 text-charcoal-500 text-base sm:text-lg max-w-xl dark:text-cream-500">
-            A curated set of tools and technologies I use to bring ideas to life.
+          <p className="mt-4 text-ink-3 text-base sm:text-lg max-w-xl mx-auto theme-aware">
+            My toolkit for building smart, beautiful things. Click any skill to learn more.
           </p>
         </motion.div>
 
@@ -92,22 +93,30 @@ export default function Skills() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10"
+          viewport={{ once: true, margin: '-60px' }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
         >
           {skillCategories.map((category) => (
             <motion.div
               key={category.title}
-              variants={categoryVariants}
-              className="group relative p-6 sm:p-8 rounded-2xl bg-cream-50/70 border border-cream-500/50 hover:border-cream-600/70 hover:shadow-lg hover:shadow-cream-500/20 transition-all duration-500 dark:border-charcoal-700/70 dark:bg-charcoal-800/70 dark:hover:border-charcoal-600 dark:hover:shadow-black/20"
+              variants={cardVariants}
+              whileHover={{ y: -4, transition: { duration: 0.3 } }}
+              className="group relative p-6 sm:p-8 rounded-2xl border border-line hover:border-line-hover hover:shadow-2xl transition-all duration-500 overflow-hidden theme-aware backdrop-blur-xl shadow-xl shadow-black/5"
             >
-              {/* Subtle hover glow */}
-              <div className="absolute inset-0 rounded-2xl bg-terra-50/0 group-hover:bg-terra-50/30 transition-all duration-500 pointer-events-none dark:group-hover:bg-terra-900/10" />
+              {/* Card bg */}
+              <div className="absolute inset-0 bg-card/60 rounded-2xl theme-aware" />
+
+              {/* Hover glow */}
+              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{ background: 'radial-gradient(ellipse at center, rgba(245,166,35,0.05) 0%, transparent 70%)' }}
+              />
 
               <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-1 h-6 rounded-full bg-terra-500" />
-                  <h3 className="text-lg font-semibold text-charcoal-800 tracking-tight dark:text-cream-100">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-icon-bg border border-line text-lg theme-aware">
+                    {category.icon}
+                  </span>
+                  <h3 className="text-lg font-bold text-ink tracking-tight theme-aware">
                     {category.title}
                   </h3>
                 </div>
@@ -117,16 +126,20 @@ export default function Skills() {
                     <motion.a
                       key={skill}
                       href={getGoogleSearchUrl(skill)}
-                      aria-label={`Search Google for ${skill}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       variants={pillVariants}
                       data-cursor-hover
                       whileHover={{
-                        scale: 1.05,
-                        transition: { duration: 0.2 },
+                        scale: 1.08,
+                        transition: { duration: 0.15, ease: 'easeOut' },
                       }}
-                      className="inline-flex items-center px-4 py-2 text-sm font-medium text-charcoal-600 bg-cream-200/80 border border-cream-500/60 rounded-lg transition-colors duration-300 hover:text-terra-700 hover:border-terra-300 hover:bg-terra-50/50 dark:border-charcoal-600 dark:bg-charcoal-900/60 dark:text-cream-300 dark:hover:border-terra-500 dark:hover:bg-terra-900/20 dark:hover:text-terra-200"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-[13px] font-semibold text-ink-2 bg-pill-bg border border-line rounded-lg transition-all duration-300 hover:text-amber-500 hover:border-amber-500/40 hover:shadow-[0_0_12px_rgba(245,166,35,0.08)] no-underline theme-aware"
                     >
                       {skill}
+                      <svg className="w-3 h-3 opacity-0 group-hover:opacity-40 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
                     </motion.a>
                   ))}
                 </div>
