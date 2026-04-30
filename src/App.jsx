@@ -6,12 +6,27 @@ import Experience from './components/Experience'
 import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
 import { ShaderAnimation } from './components/ui/shader-animation'
+import { SparklesCore } from './components/ui/sparkles'
 
 function BackgroundElements() {
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
       {/* Shader animation background */}
       <ShaderAnimation />
+
+      {/* Sparkles particle effect */}
+      <div className="absolute inset-0 z-0">
+        <SparklesCore
+          id="tsparticlesglobal"
+          background="transparent"
+          minSize={0.6}
+          maxSize={2}
+          particleDensity={80}
+          className="w-full h-full opacity-60"
+          particleColor="#f5a623"
+          speed={0.8}
+        />
+      </div>
 
       {/* Tech grid */}
       <div className="absolute inset-0 tech-grid opacity-50 theme-aware" />
