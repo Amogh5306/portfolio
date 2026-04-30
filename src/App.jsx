@@ -5,15 +5,11 @@ import Skills from './components/Skills'
 import Experience from './components/Experience'
 import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
-import { ShaderAnimation } from './components/ui/shader-animation'
 import { SparklesCore } from './components/ui/sparkles'
 
 function BackgroundElements() {
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Shader animation background */}
-      <ShaderAnimation />
-
       {/* Sparkles particle effect */}
       <div className="absolute inset-0 z-0">
         <SparklesCore

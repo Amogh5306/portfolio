@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 import TextRotator from './TextRotator'
+import AnimatedShaderHero from './ui/animated-shader-hero'
+import { LiquidButton, MetalButton } from './ui/liquid-glass-button'
 
 const containerVariants = {
   hidden: {},
@@ -20,10 +22,8 @@ const itemVariants = {
 
 export default function Hero() {
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
+    <section id="hero" className="relative w-full">
+      <AnimatedShaderHero className="min-h-screen">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -72,14 +72,14 @@ export default function Hero() {
 
         {/* CTAs */}
         <motion.div variants={itemVariants} className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="#skills"
+          <LiquidButton 
+            onClick={() => document.getElementById('skills').scrollIntoView({ behavior: 'smooth' })}
             data-cursor-hover
-            className="group relative inline-flex items-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-amber-500 to-coral-500 text-white text-sm font-bold rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(245,166,35,0.3)] hover:scale-[1.02]"
+            className="px-10 h-14 text-white"
           >
             See what I do
             <svg
-              className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+              className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -87,14 +87,14 @@ export default function Hero() {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
-          </a>
-          <a
-            href="#experience"
+          </LiquidButton>
+          <MetalButton 
+            onClick={() => document.getElementById('experience').scrollIntoView({ behavior: 'smooth' })}
+            variant="default"
             data-cursor-hover
-            className="inline-flex items-center gap-2 px-7 py-3.5 border border-line hover:border-amber-500/50 text-ink-2 hover:text-ink text-sm font-bold rounded-xl transition-all duration-300 hover:bg-card/40 theme-aware"
           >
             My experience
-          </a>
+          </MetalButton>
         </motion.div>
 
         {/* Stats */}
@@ -129,6 +129,7 @@ export default function Hero() {
           </motion.div>
         </motion.div>
       </motion.div>
+      </AnimatedShaderHero>
     </section>
   )
 }
