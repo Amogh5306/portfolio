@@ -67,25 +67,26 @@
 }
 
 /* ===== LIGHT MODE ===== */
+/* Deeper, warmer beige. NO PURE WHITE. */
 :root.light {
-  --c-surface: #f4efe6;
-  --c-surface-2: #e8ddcd;
-  --c-card: rgba(255, 250, 240, 0.78);
-  --c-card-hover: rgba(255, 253, 248, 0.92);
-  --c-ink: #201915;
-  --c-ink-2: #3e332d;
-  --c-ink-3: #6d5e52;
-  --c-ink-4: #96887a;
-  --c-line: rgba(82, 63, 45, 0.14);
-  --c-line-hover: rgba(168, 88, 42, 0.34);
-  --c-glass: rgba(250, 244, 234, 0.72);
-  --c-dot: rgba(116, 87, 58, 0.12);
-  --c-pill-bg: rgba(255, 248, 235, 0.7);
-  --c-icon-bg: rgba(255, 248, 235, 0.8);
-  --c-orb-opacity: 0.24;
-  --c-gradient-text-from: #9f5f05;
-  --c-gradient-text-via: #c84934;
-  --c-gradient-text-to: #c48910;
+  --c-surface: #e2d7c5; 
+  --c-surface-2: #d6caba;
+  --c-card: #ebe2d3; 
+  --c-card-hover: #f1ede1;
+  --c-ink: #2b231c;
+  --c-ink-2: #4a3e33;
+  --c-ink-3: #6c5d4f;
+  --c-ink-4: #928373;
+  --c-line: rgba(255, 255, 255, 0.55); /* Glassy white frosted borders */
+  --c-line-hover: rgba(255, 255, 255, 0.95);
+  --c-glass: rgba(235, 226, 211, 0.65);
+  --c-dot: rgba(43, 35, 28, 0.12); /* More visible dots */
+  --c-pill-bg: rgba(255, 255, 255, 0.4); /* Glassy pill backgrounds */
+  --c-icon-bg: rgba(255, 255, 255, 0.6);
+  --c-orb-opacity: 0.55; /* Huge vibrant splash of color in light mode */
+  --c-gradient-text-from: #b36d08;
+  --c-gradient-text-via: #a83528;
+  --c-gradient-text-to: #b36d08;
 }
 
 html {
@@ -159,23 +160,6 @@ body {
   background-size: 32px 32px;
 }
 
-.sparkle-field {
-  background-image:
-    radial-gradient(circle at 12% 18%, rgba(245, 166, 35, 0.35) 0 1px, transparent 2px),
-    radial-gradient(circle at 72% 12%, rgba(232, 96, 76, 0.25) 0 1px, transparent 2px),
-    radial-gradient(circle at 38% 76%, rgba(255, 194, 51, 0.28) 0 1px, transparent 2px),
-    radial-gradient(circle at 88% 64%, rgba(245, 166, 35, 0.22) 0 1px, transparent 2px);
-  background-size: 180px 180px, 220px 220px, 260px 260px, 300px 300px;
-  animation: sparkle-pan 28s linear infinite;
-}
-
-.sparkle-dot {
-  opacity: 0;
-  animation-name: sparkle-float;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-}
-
 /* Tech grid */
 .tech-grid {
   background-image: 
@@ -206,16 +190,6 @@ body {
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
-}
-
-@keyframes sparkle-pan {
-  0% { background-position: 0 0, 0 0, 0 0, 0 0; }
-  100% { background-position: 180px 180px, -220px 220px, 260px -260px, -300px -300px; }
-}
-
-@keyframes sparkle-float {
-  0%, 100% { opacity: 0.12; transform: translate3d(0, 0, 0) scale(0.8); }
-  50% { opacity: 0.75; transform: translate3d(8px, -14px, 0) scale(1); }
 }
 
 /* CSS Animations for orbs (Fixes lag vs Framer Motion) */

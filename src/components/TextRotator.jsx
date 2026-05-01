@@ -3,9 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const roles = [
   'Frontend Developer',
-  'AI/ML Engineer',
   'UI/UX Designer',
-  'Problem Solver',
 ]
 
 export default function TextRotator() {
@@ -19,15 +17,15 @@ export default function TextRotator() {
   }, [])
 
   return (
-    <span className="relative inline-grid h-[1.15em] min-w-[15ch] overflow-hidden text-left align-baseline">
+    <span className="relative inline-flex items-center justify-center h-[1.2em] overflow-hidden">
       <AnimatePresence mode="wait">
         <motion.span
           key={roles[index]}
-          initial={{ y: 34, opacity: 0, rotateX: -35 }}
+          initial={{ y: 40, opacity: 0, rotateX: -40 }}
           animate={{ y: 0, opacity: 1, rotateX: 0 }}
-          exit={{ y: -34, opacity: 0, rotateX: 35 }}
+          exit={{ y: -40, opacity: 0, rotateX: 40 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="col-start-1 row-start-1 inline-block whitespace-nowrap gradient-text"
+          className="inline-block gradient-text"
         >
           {roles[index]}
         </motion.span>

@@ -1,5 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { LiquidButton, MetalButton } from './liquid-glass-button';
 
 const useShaderBackground = () => {

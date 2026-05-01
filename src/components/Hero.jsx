@@ -53,9 +53,9 @@ export default function Hero() {
         {/* Animated role line */}
         <motion.div
           variants={itemVariants}
-          className="mt-6 flex flex-wrap items-baseline justify-center gap-x-3 gap-y-2 text-2xl sm:text-3xl md:text-4xl font-bold leading-none theme-aware"
+          className="mt-6 flex items-center justify-center gap-2 text-xl sm:text-2xl md:text-3xl font-semibold text-ink-2 leading-relaxed theme-aware"
         >
-          <span className="text-ink-2">I'm a</span>
+          <span>I'm a</span>
           <TextRotator />
         </motion.div>
 
