@@ -6,7 +6,7 @@ const projects = [
     description: 'A full-stack, automated web scraping pipeline and real-time dashboard built to track the pricing volatility of the Royal Kludge RK M75 keyboard. Features a robust Python scraping script, a Flask REST API on Render, and a premium dark-mode Chart.js frontend on Vercel.',
     tags: ['Python', 'Flask', 'Chart.js', 'Web Scraping', 'Render', 'Vercel'],
     github: 'https://github.com/Amogh5306/keyboard-price-tracker',
-    live: 'https://keyboard-price-tracker.vercel.app/' // This is standard vercel URL format; adjust if you used a custom name!
+    live: 'https://amogh-keyboard-tracker.vercel.app/'
   }
 ]
 
