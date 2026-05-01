@@ -2,7 +2,7 @@
 
 A premium, minimalist personal portfolio built with React, Tailwind CSS v4, and Framer Motion. Features a warm light/dark mode, custom animated cursor, and smooth scroll-triggered animations.
 
-🔗 **Live:** [amoghdey-portfolio.vercel.app](https://amoghdey-portfolio.vercel.app)
+🔗 **Live:** [portfolio-amogh5306s-projects.vercel.app](https://portfolio-amogh5306s-projects.vercel.app)
 
 ---
 
