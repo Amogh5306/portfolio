@@ -7,10 +7,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <span className="text-lg font-extrabold gradient-text">AD</span>
-            <span className="text-xs text-ink-4 theme-aware">|</span>
-            <p className="text-xs text-ink-4 theme-aware">&copy; {year} Amogh Dey</p>
           </div>
-          <p className="text-xs text-ink-4 theme-aware">Designed & crafted with precision</p>
         </div>
       </div>
     </footer>

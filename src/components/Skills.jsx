@@ -1,14 +1,15 @@
 import { motion } from 'framer-motion'
+import { Code, BrainCircuit, Layout, PenTool } from 'lucide-react'
 
 const skillCategories = [
   {
     title: 'Languages',
-    icon: '{ }',
+    icon: <Code className="w-5 h-5" />,
     skills: ['Python', 'JavaScript', 'MATLAB', 'SQL', 'HTML', 'CSS'],
   },
   {
     title: 'AI & ML',
-    icon: '⚡',
+    icon: <BrainCircuit className="w-5 h-5" />,
     skills: [
       'Machine Learning',
       'Regression',
@@ -22,12 +23,12 @@ const skillCategories = [
   },
   {
     title: 'Frontend',
-    icon: '◆',
+    icon: <Layout className="w-5 h-5" />,
     skills: ['React', 'Next.js', 'Tailwind CSS', 'Framer Motion', 'Responsive Design', 'REST APIs'],
   },
   {
     title: 'Design',
-    icon: '✦',
+    icon: <PenTool className="w-5 h-5" />,
     skills: ['Figma', 'UI/UX Design', 'Prototyping', 'Design Systems', 'Typography', 'Visual Design'],
   },
 ]
@@ -137,9 +138,6 @@ export default function Skills() {
                       className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-[13px] font-semibold text-ink-2 bg-pill-bg border border-line rounded-lg transition-all duration-300 hover:text-amber-500 hover:border-amber-500/40 hover:shadow-[0_0_12px_rgba(245,166,35,0.08)] no-underline theme-aware"
                     >
                       {skill}
-                      <svg className="w-3 h-3 opacity-0 group-hover:opacity-40 transition-opacity duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
                     </motion.a>
                   ))}
                 </div>

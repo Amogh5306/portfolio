@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import Lenis from 'lenis'
 import { ThemeProvider } from './context/ThemeContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -62,6 +64,25 @@ function BackgroundElements() {
 }
 
 export default function App() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    })
+
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+
+    return () => {
+      lenis.destroy()
+    }
+  }, [])
+
   return (
     <ThemeProvider>
       <div className="relative min-h-screen bg-surface text-ink-2 font-sans antialiased grain theme-aware">

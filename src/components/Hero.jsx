@@ -79,15 +79,6 @@ export default function Hero() {
             className="px-10 h-14 text-white"
           >
             See what I do
-            <svg
-              className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
           </LiquidButton>
           <MetalButton 
             onClick={() => document.getElementById('experience').scrollIntoView({ behavior: 'smooth' })}
