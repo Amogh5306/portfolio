@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Amogh Dey's personal developer portfolio built with React and Tailwind v4",
   "keywords": ["portfolio", "react", "tailwind", "framer-motion", "developer"],
+  "author": "Amogh Dey",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
