@@ -2,7 +2,7 @@
 
 A premium, minimalist personal portfolio built with React, Tailwind CSS v4, and Framer Motion. Features a warm light/dark mode, custom animated cursor, and smooth scroll-triggered animations.
 
-🔗 **Live:** [amoghdey.is-a.dev](https://amoghdey.is-a.dev)
+🔗 **Live Demo:** [amoghdey.is-a.dev](https://amoghdey.is-a.dev)
 
 ---
 
